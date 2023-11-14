@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+
+</head>
+<body>
+<section id="header">
+    <a href="#" class="btn">Login</a>
+    
+    <div class="wrapper">
+        <span class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" id="lemail" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password"  id="lpass" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#" onclick="forgot()">Forgot Password?</a>
+                </div>
+                <button class="btn-real" onclick="login()" >Login</button>
+                <div class="login-register">
+                    <p>Don't have an account<a  href="#" class="signup-link">Signup</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Sign Up</h2>
+            <form action="">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" required >
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" id="semail" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password"  id="spass" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label><input type="checkbox">agree to the terms & conditions ?</label>
+        
+                </div>
+                <button class="btn-real" onclick="signUp()">Sign up</button>
+                <button onclick="loginWithGoogle()" class="btn-real2">Signup With Google 
+                    <i class="fa-brands fa-google"></i> </button>
+                <div class="login-register">
+                    <p>Already have an account?<a  href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="app.js"></script>
+</body>
+</html>
