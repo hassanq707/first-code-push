@@ -1,82 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Sign up</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=Kaushan+Script&family=Oswald:wght@400;500&family=Playpen+Sans:wght@300&family=Poppins:ital,wght@1,300&family=Roboto&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=IBM+Plex+Sans:ital@1&family=Kaushan+Script&family=Oswald:wght@400;500&family=Playpen+Sans:wght@300&family=Poppins:ital,wght@1,300&family=Roboto&family=Tilt+Prism&display=swap" rel="stylesheet">
+
+<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
 </head>
-<body>
-<section id="header">
-    <a href="#" class="btn" onclick="openMain()">Login</a>
-    
-    <div class="wrapper" id="main">
-        <span class="close" >
-            <a href="#" onclick="closeMain()"><i class="fa-solid fa-xmark"></i></a>
-        </span>
-        <div class="form-box login">
-            <h2>Login</h2>
-            <form action="">
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="lemail" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password"  id="lpass" required>
-                    <label>Password</label>
-                </div>
-                <div class="remember-forget">
-                    <label><input type="checkbox">Remember me</label>
-                    <a href="#" onclick="forgot()">Forgot Password?</a>
-                </div>
-                <button class="btn-real" onclick="login()" >Login</button>
-                <div class="login-register">
-                    <p>Don't have an account<a  href="#" class="signup-link" onclick="addActive()">Signup</a></p>
-                </div>
-            </form>
-        </div>
 
-        <div class="form-box register">
-            <h2>Sign Up</h2>
-            <form action="">
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="semail" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password"  id="spass" required>
-                    <label>Password</label>
-                </div>
-                <div class="remember-forget">
-                    <label><input type="checkbox">agree to the terms & conditions ?</label>
-        
-                </div>
-                <button class="btn-real" onclick="signUp()">Sign up</button>
-                <div class="abc">
-                  <button onclick="loginWithGoogle()" class="btn-real2">Signup With Google 
-                    <i class="fa-brands fa-google"></i> </button>
-                    <button onclick="loginWithGithub()" class="btn-real2">Signup With Github
-                      <i class="fa-brands fa-github"></i> </button>
+<body>
+    <!--                  Header             -->
+
+
+    <section id="banner">
+        <div class="logo">
+            <img src="./logo.png">
+        </div>
+        <div class="banner-text">
+            <h1>Sms Barber</h1>
+            <p>Style Your Hair Is Style Your Life</p>
+            <div class="banner-btn">
+                <a href="#features"><span></span>Find Out</a>
+            </div>
+        </div>
+    </section>
+        <div id="side-nav">
+            <ul>
+            <li><a href="#banner">HOME</a></li>
+            <li><a href="#features">FEATURES</a></li>
+            <li><a href="#service">SERVICES</a></li>
+            <li><a href="#team">OUR TEAM</a></li>
+            <li><a href="#registration">REGISTRATION</a></li>
+            <li><a href="#footer">MEET US</a></li>
+
+        </ul>
+    </div>
+    <div id="menu-btn">
+        <img src="./menu.png" id="menu">
+    </div>
+    
+
+    <!--               Features           -->
+
+    <section id="features">
+        <div class="title">
+            <p>FEATURES</p>
+            <h1>Proficient</h1>
+        </div>
+        <div class="features-row">
+            <div class="features-col1">
+                <h1> Our Experienced Staff</h1>
+                <div class="features-des">
+                    <div class="des-text">
+                        <p>Our barber shop's seasoned staff brings unparalleled expertise, ensuring each client receives top-notch grooming and styling.</p>
                     </div>
-                <div class="login-register">
-                    <p>Already have an account?<a  href="#" class="login-link" onclick="removeActive()">Login</a></p>
                 </div>
-            </form>
+
+                <h1>Pre Booking Online</h1>
+                <div class="features-des">
+                    <div class="des-text">
+                        <p>Streamline your experience—secure your spot effortlessly by prebooking online for personalized grooming at our barbershop. Perspiciatis, repellat.</p>
+                    </div>
+                </div>
+
+                <h1>Affordable</h1>
+                <div class="features-des">
+                    <div class="des-text">
+                        <p>Experience quality grooming without breaking the bank—our barbershop offers affordable excellence tailored to your style Perspiciatis, repellat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="features-col2">
+                <img src="./feature.png" alt="">
+                <div class="overlay1"></div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--            Services          -->
+    <section id="service">
+        <div class="title">
+            <p>Services</p>
+            <h1>We Provide Better</h1>
+        </div>
+        <div class="service-box">
+            <div class="single-service">
+                <img src="./customer1.png">
+                <div class="overlay"></div>
+                <div class="service-text">
+                    <h3>Hair Cut</h3>
+                    <hr>
+                    <p>Exceptional haircuts for a stylish and confident you.
+                    </p>
+                </div>
+
+            </div>
+            <div class="single-service">
+                <img src="./customer3png.jpg">
+                <div class="overlay"></div>
+                <div class="service-text">
+                    <h3>Beard Trim</h3>
+                    <hr>
+                    <p>Precision beard trims for your impeccable, tailored look
+                        
+                    </p>
+                </div>
+                
+            </div>
+            <div class="single-service">
+                <img src="./pic-4.jpg">
+                <div class="overlay"></div>
+                <div class="service-text">
+                    <h3>Dry Shampoo</h3>
+                    <hr>
+                    <p>Revitalize with our salon-grade dry shampoo experience
+
+                    </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./pic-1.jpg">
+                <div class="overlay"></div>
+                <div class="service-text">
+                    <h3>Hair Styling</h3>
+                    <hr>
+                    <p>Top-notch hair styling for the perfect look.
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!--            Our Team      -->
+    <section id="team">
+        <div class="title">
+            <p>Our Team</p>
+            <h1>Our Experienced Staff</h1>
+        </div>
+        <div class="team-row">
+            <div class="team-col">
+                <img src="./team1.jpeg" >
+                <div class="team-text">
+                    <h2 class="color">M Asif</h2>
+                    <p class="para color"><q>Owner of the Shop </q></p> 
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+               </div>
+            </div>
+            <div class="team-col">
+                <img src="./team2.jpg" >
+                <div class="team-text">
+                    <h2 class="color">Abdullah</h2>
+                    <p class="color para">4 Years of experience</p> 
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+
+               </div>
+            </div>
+            <div class="team-col">
+                <img src="./team3.jpg" >
+                <div class="team-text">
+                    <h2 class="color">M Saeed</h2>
+                    <p class="color para">3 Years of experience</p> 
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+
+               </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--           REGISTRATION       -->
+    
+    <section id="registration">
+        <div class="title">
+            <p>REGISTRATION</p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Enter your name" id="name" class="input1">
+            <input type="text" placeholder="Enter your mobile-number" id="number" class="input1">
+            <input type="email" placeholder="Enter your email" id="email" class="input1">
+            <input type="text" placeholder="Time(9 : am to 9 : pm)" id="time" class="input1">
+    
+            <textarea name="" id="textarea"  placeholder="Enter the services you want"></textarea>
+             <button onclick="getValue()" class="buttonjee">Submit</button>
+            </div>
+    </section>
+
+
+ <!--                    footer       -->
+<section id="footer">
+    <div class="title">
+        <p>CONTACT</p>
+        <h1>Visit Shop Today </h1>
+    </div>
+    <div class="footer-row">
+        <img src="./images/footer-img.png" alt="">
+        <div class="footer-left">
+            <h1>Opening Hours</h1>
+            <p><i class="fa fa-clock-o"></i>Monday to Friday - 9:AM to 9:PM</p>
+            <p><i class="fa fa-clock-o"></i>Saturday to Sunday - 10:AM to 12:AM</p>
+
+        </div>
+        <div class="footer-right">
+            <h1>Get In Touch</h1>
+            <p>C-15, Rafa-e-aam Society, Karachi <i class="fa fa-map-marker"></i></p>
+            <p>Saeed25@gmail.com <i class="fa fa-envelope"></i></p>
+            <p>0311-1001832<i class="fa fa-phone"></i></p>
         </div>
     </div>
+    <div class="social-links">
+       <a href="https://www.facebook.com/sariki.asif"> <i class="fa fa-facebook"></i></a> 
+       <a href="https://www.instagram.com/siraikimasif/"> <i class="fa fa-instagram"></i></a> 
+       <a href="https://www.facebook.com/sariki.asif"> <i class="fa fa-twitter"></i></a> 
+    </div>
+    <p class="abc">Made By Hassan Qadri <i class="fa fa-heart-o hasso"></i></p>
+    
 </section>
-
-
-
-<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>

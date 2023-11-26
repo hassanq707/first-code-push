@@ -1,151 +1,69 @@
- 
-// *******************     FIREBASE FUNCTIONALITY     ***************************
+var sidenav = document.getElementById('side-nav')
+var menubtn = document.getElementById('menu-btn')
+var menu = document.getElementById('menu')
+
+sidenav.style.right = '-250px'
+menubtn.onclick = function () {
+    if (sidenav.style.right == '-250px') {
+        sidenav.style.right = '0';
+        menu.src = './close.png';
+    }
+    else {
+        sidenav.style.right = '-250px';
+        menu.src = './menu.png';
+
+    }
+
+}
+var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 1000,
+    speedAsDuration: true
+});
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAZIlcq1ospwXuoWJAU_Wf-rosd6tGJw1w",
-  authDomain: "authentication-c7c4f.firebaseapp.com",
-  projectId: "authentication-c7c4f",
-  storageBucket: "authentication-c7c4f.appspot.com",
-  messagingSenderId: "694347381524",
-  appId: "1:694347381524:web:391a3bd69bf27b0a3fa001"
+    apiKey: "AIzaSyAZIlcq1ospwXuoWJAU_Wf-rosd6tGJw1w",
+    authDomain: "authentication-c7c4f.firebaseapp.com",
+    databaseURL: "https://authentication-c7c4f-default-rtdb.firebaseio.com",
+    projectId: "authentication-c7c4f",
+    storageBucket: "authentication-c7c4f.appspot.com",
+    messagingSenderId: "694347381524",
+    appId: "1:694347381524:web:391a3bd69bf27b0a3fa001"
 };
 
 const app = firebase.initializeApp(firebaseConfig);
 
-function signUp(){
-  var email = document.getElementById('semail');
-  var password = document.getElementById('spass');
+function getValue() {
+    var name = document.getElementById('name')
+    var number = document.getElementById('number')
+    var email = document.getElementById('email')
+    var time = document.getElementById('time')
+    var text = document.getElementById('textarea')
 
-  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-.then((userCredential) => {
-  var user = userCredential.user;
-  console.log(user)
-  firebase.auth().currentUser.sendEmailVerification()
-.then(() => {
-  alert('Email has sent to verify your account ')
-});
-})
-.catch((error) => {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log(errorMessage)
-});
-email.value = '';
-password.value = '';
+
+
+    var obj = {
+        name: name.value,
+        number: number.value,
+        email: email.value,
+        time: time.value,
+        text: text.value
+    }
+
+    var key = Math.round(Math.random() * 212121)
+
+    firebase.database().ref('ClientOrders/' + key).set(obj)
+
+
+     name.value=''
+     number.value=''
+        email.value=''
+        time.value = ''
+        text.value=''
+
+        Swal.fire({
+            title: "Successfully!",
+            text: "Your form has been submitted.We will contact you ASAP!",
+            icon: "success"
+          });
 }
-
-
-function login(){
-  var email = document.getElementById('lemail');
-  var password = document.getElementById('lpass');
-
-  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-.then((userCredential) => {
-  var user = userCredential.user;
-   console.log(user)
-})
-.catch((error) => {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log(errorMessage)
-});
-email.value = '';
-password.value = '';
-}
-
-function forgot(){
-  var email = document.getElementById('lemail');
-
-  firebase.auth().sendPasswordResetEmail(email.value)
-  .then(() => {
-   alert('Email has sent  to reset password')
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage)
-  });
-  // alert('hello jee')
-}
-
-function loginWithGoogle(){
-  var provider = new firebase.auth.GoogleAuthProvider();
-
-
-firebase
-.auth()
-.signInWithPopup(provider)
-.then((result) => {
-  /** @type {firebase.auth.OAuthCredential} */
-  var credential = result.credential;
-
-  var token = credential.accessToken;
-  var user = result.user;
-  console.log(user);
-})
-.catch((error) => {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log(errorMessage);
-  var email = error.email;
-  var credential = error.credential;
-  
-});
-}
-
-
-function loginWithGithub(){
-
-  var provider = new firebase.auth.GithubAuthProvider();
-
-  firebase
-  .auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
-
-    var token = credential.accessToken;
-
-    var user = result.user;
-    console.log(user)
-  
-      
-  }).catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage)
-    var email = error.email;
-    var credential = error.credential;
-  });
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// **********************   FRONT END FUNCTIONALITY   **************************
-
-var wrapper = document.getElementById('main')
-
-function openMain(){
-  wrapper.classList += ' active-popup';
-}
-function closeMain(){
-  wrapper.classList.remove('active-popup')
-}
-function addActive(){
-  wrapper.classList += ' active';
-}
-function removeActive(){
- wrapper.classList.remove('active')
-}
-
