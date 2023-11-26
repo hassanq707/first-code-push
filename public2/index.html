@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+
+    <div class="header">
+     <h2>Quiz App</h2>
+     <div class="timer-hd">
+         <p id="timer">0:0</p>
+     </div>
+     <div class="counting">
+        <span id="currentQues">0 /</span> <span id="totalQues">0</span>
+     </div>
+    </div>
+       
+    <a href="#" class="header-btn" onclick="start()" id="start-btn"><span></span>Start Quiz</a>
+    <a href="#" class="header-btn  restart" onclick="restart()" id="restart-btn"><span></span>Restart Quiz</a>
+
+ <div id="banner"> 
+
+    <h3 id="ques">
+
+    </h3>
+      <hr>
+    <input  value="1" onclick="clicked()" name="options" type="radio" id="" class="input-radio"><label id="opt1" class="label123"></label><br>
+    <input  value="2" onclick="clicked()" name="options" type="radio" id="" class="input-radio"><label id="opt2" class="label123"></label><br>
+    <input  value="3" onclick="clicked()" name="options" type="radio" id="" class="input-radio"><label id="opt3" class="label123"></label><br><br>
+    <button disabled id="btn" onclick="nextQuestion()"> <span></span>Next</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+      
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="app.js"></script>    
+</body>
+</html>
