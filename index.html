@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#main{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0px auto;
+    padding-bottom: 30px;
+}
+
+.cards{
+    flex-basis: 30%;
+    height: 350px;
+    margin-top: 20px;
+    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+.img{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+
+}
+.hassan{
+    font-size: 24px;
+    color: rgb(8, 8, 27);
+    margin: 2px 8px;
+}
+.abc{
+    color: rgb(8, 8, 27);
+    margin: 2px 8px;
+    text-align: justify;
+    font-size: 15px;
+}
+.btn{
+    border: none;
+    text-decoration: none;
+    background-color: rgb(8, 8, 27);
+    color: #fff;
+    padding: 10px 0px;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    margin: 2px 7px;
+    border-radius: 12px;
+
+}
+
+    </style>
+</head>
+<body>
+        <div id="main">
+            
+        </div>
+
+    <script>
+    
+let obj = [
+  {
+      p_image :  "https://i.imgur.com/R2PN9Wq.jpeg" ,
+      p_name : 'Jacket',
+      p_des : "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting",
+      p_price : '$40'
+  },
+  {
+      p_image : "https://i.imgur.com/mp3rUty.jpeg" ,
+      p_name : 'Trouser',
+      p_des : "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      p_price : '$10'
+  },
+  {
+      p_image : "https://i.imgur.com/R3iobJA.jpeg" ,
+      p_name : 'Cap',
+      p_des :  "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of ", 
+      p_price : '$20'
+  },
+  {
+      p_image : "https://i.imgur.com/cBuLvBi.jpeg" ,
+      p_name : 'Cap',
+      p_des : "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals" ,
+      p_price : '$80'
+  },
+  {
+      p_image : "https://i.imgur.com/KeqG6r4.jpeg" 
+      ,
+      p_name : 'Cap',
+      p_des : "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J ",
+      p_price : '$35'
+  },
+  {
+      p_image : './towel.jpg',
+      p_name : 'Towel',
+      p_des : 'Amazon  hello Basics Microfiber Cleaning Cloth, Non-Abrasive hello jee ki haal chaal ha thek hona khush ho all set ha',
+      p_price : '$40'
+  }
+]
+
+const main = document.getElementById('main');
+
+obj.map((products) =>{
+
+  let{p_image:image,p_name:name,p_des:des,p_price :price} = products 
+
+    main.innerHTML += `<div class = "cards">
+  <img src= ${image} class = 'img'>
+  <h2 class = 'hassan'>${name}</h2>
+  <p class= 'abc'>${des}</p>
+  <p class = 'abc'>${price}</p>
+  <a href='#' class = 'btn'>Order here</a>
+  </div>`
+})
+    </script>
+</body>
+</html>
