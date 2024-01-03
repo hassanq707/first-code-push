@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100%;
+    height: 60vh;
+    background: url(./background.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-top: 50px;
+}
+.navbar{
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+    margin: 0px auto;
+}
+.navbar h3{
+    color: #fff;
+    font-size: 25px;
+}
+.navbar button{
+    width: 80px;
+    height: 35px;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(6, 6, 48);
+}   
+.header-text{
+    width: 60%;
+    margin: 50px auto;
+    text-align: center;
+}
+.header-text h2{
+    font-size: 33px;
+    margin-bottom: 10px;
+    color: black;
+}
+.header-text input{
+   outline: none;
+   height: 35px;
+   padding: 4px 10px;
+   border-radius: 12px;
+   background-color: #fff;
+   border: none;
+   width: 50%;
+   font-size: 15px;
+} 
+.header-text button{
+    width: 80px;
+    height: 35px;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    background-color: rgb(6, 6, 48);
+    margin: 0px 14px;
+    cursor: pointer;
+ }
+
+.des{
+    width: 100%;
+    padding: 60px 0px;
+    background-color: rgb(217, 215, 215);
+}
+.des-row{
+    display:flex ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0px auto;
+}
+.des-col{
+    flex-basis: 30%;
+    text-align: center;
+}
+.des-col h2{
+    margin: 7px 0px;
+}
+.des-col img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+} 
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.main-cols{
+    flex-basis: 50%;
+    height: 350px;
+    background-color: rgb(217, 215, 215);
+}
+.main-cols img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.main-cols div{
+    width: 70%;
+    margin: 120px auto;
+}
+.main-cols div h2{
+    margin: 12px 0px;
+    font-size: 27px;
+}
+.main-cols div p{
+    color: rgb(64, 62, 62);
+}
+.review{
+    width: 100%;
+    padding: 50px 0px;
+    text-align: center;
+    background-color: rgb(217, 215, 215);
+}
+.review-row{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
+.review-col{
+    flex-basis: 30%;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.6);
+}
+.review-col img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 12px auto 0px;
+}
+.review-col h3{
+    margin: 7px;
+}
+.review-col p{
+    color: rgb(69, 68, 68);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
